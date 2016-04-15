@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComparisonTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Word Comparison Tool" Height="237.333" Width="525" SnapsToDevicePixels="True">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="keyTextBox" Height="23" Margin="10,10,125.667,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="chooseKeyButton" Content="Choose Key..." Margin="0,10,9.667,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="111"/>
+        <TextBox x:Name="folderTextBox" Height="23" Margin="10,38,125.667,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="chooseFolderButton" Content="Choose Folder..." Margin="0,38,9.667,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="111"/>
+
     </Grid>
 </Window>
