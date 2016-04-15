@@ -5,15 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComparisonTool"
         mc:Ignorable="d"
-        Title="Word Comparison Tool" Height="237.333" Width="525" SnapsToDevicePixels="True">
-    <Grid>
+        Title="Word Comparison Tool" Height="200" Width="500" SnapsToDevicePixels="True" SizeToContent="Height" MinWidth="400" ResizeMode="CanMinimize">
+    <Grid MinWidth="3" Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="78"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition MinWidth="250"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="keyTextBox" Height="23" Margin="10,10,125.667,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="chooseKeyButton" Content="Choose Key..." Margin="0,10,9.667,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="111"/>
-        <TextBox x:Name="folderTextBox" Height="23" Margin="10,38,125.667,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="chooseFolderButton" Content="Choose Folder..." Margin="0,38,9.667,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="111"/>
+        <TextBox x:Name="keyTextBox" Height="23" Margin="10,10,8.333,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="chooseKeyButton" Content="Choose Key..." Margin="10.667,10,9.333,0" VerticalAlignment="Top" Height="23" Grid.Column="1"/>
+        <TextBox x:Name="folderTextBox" Margin="10,38,8.333,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+        <Button x:Name="chooseFolderButton" Content="Choose Folder..." Margin="10.667,38,9.333,0" VerticalAlignment="Top" Height="23" Grid.Column="1"/>
+        <TextBlock x:Name="statusTextBlock" Margin="10,0,8.667,34.667" TextWrapping="Wrap" Text="Choose key" FontSize="34" Grid.Row="1" Height="50" VerticalAlignment="Bottom"/>
+        <Button x:Name="prevButton" Content="Previous" Margin="10.333,0,9.667,49.667" Height="32" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" IsEnabled="False"/>
+        <Button x:Name="nextButton" Content="Next" Margin="10.333,0,9.667,8.667" Height="32" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" IsEnabled="False"/>
+        <ComboBox x:Name="filesComboBox" Margin="10,0,88.667,8.667" Grid.Row="1" Height="21" VerticalAlignment="Bottom"/>
+        <Button x:Name="aboutButton" Content="About" Margin="0,0,8.667,8.667" Grid.Row="1" HorizontalAlignment="Right" Width="75" Height="21" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>
