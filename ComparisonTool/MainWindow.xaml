@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComparisonTool"
         mc:Ignorable="d"
-        Title="Word Comparison Tool" Height="200" Width="500" SnapsToDevicePixels="True" SizeToContent="Height" MinWidth="400" ResizeMode="CanMinimize">
+        Title="Office Comparison Tool" Height="200" Width="500" SnapsToDevicePixels="True" SizeToContent="Height" MinWidth="400" ResizeMode="CanMinimize">
     <Grid MinWidth="3" Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="78"/>
