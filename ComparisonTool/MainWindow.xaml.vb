@@ -37,23 +37,9 @@ Class MainWindow
         filesComboBox.SelectedIndex -= 1
     End Sub
 
-    Private Async Sub filesComboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) _
+    Private Sub filesComboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) _
             Handles filesComboBox.SelectionChanged
-        UpdatePrevNext()
-
-        Dim sel = filesComboBox.SelectedItem
-
-        If sel IsNot Nothing Then
-            ComparingStatus()
-            ' Re-join the filename with the path name, since it was stripped
-            ' to put it in the combobox
-            Dim fullPath = Path.Combine(folderTextBox.Text, sel)
-            Dim key = keyTextBox.Text
-            Await Task.Run(Sub()
-                               worker.Compare(key, fullPath)
-                           End Sub)
-            UpdateStatus()
-        End If
+        CompareCurrentSelection()
     End Sub
 
     Private Sub folderTextBox_TextChanged(sender As Object, e As TextChangedEventArgs) _
@@ -130,5 +116,23 @@ Class MainWindow
         dlg.WindowTitle = "About"
         dlg.Buttons.Add(New TaskDialogButton(ButtonType.Ok))
         dlg.ShowDialog()
+    End Sub
+
+    Private Async Sub CompareCurrentSelection()
+        UpdatePrevNext()
+
+        Dim sel = filesComboBox.SelectedItem
+
+        If sel IsNot Nothing Then
+            ComparingStatus()
+            ' Re-join the filename with the path name, since it was stripped
+            ' to put it in the combobox
+            Dim fullPath = Path.Combine(folderTextBox.Text, sel)
+            Dim key = keyTextBox.Text
+            Await Task.Run(Sub()
+                               worker.Compare(key, fullPath)
+                           End Sub)
+            UpdateStatus()
+        End If
     End Sub
 End Class
