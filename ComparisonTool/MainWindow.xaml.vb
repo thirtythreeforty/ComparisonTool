@@ -4,6 +4,7 @@ Imports System.IO
 
 Class MainWindow
     Private worker = New OfficeHandler
+    Private WithEvents checker As UpdateChecker = New UpdateChecker
 
     Private Sub chooseKeyButton_Click(sender As Object, e As RoutedEventArgs) _
             Handles chooseKeyButton.Click
@@ -134,5 +135,24 @@ Class MainWindow
                            End Sub)
             UpdateStatus()
         End If
+    End Sub
+
+    Private Sub checker_OnUpdateFound(version As String, url As String) _
+                Handles checker.UpdateFound
+        Dim dlg = New TaskDialog
+        dlg.MainInstruction = "Update Available"
+        dlg.Content =
+            "A new update, " + version + ", of this program is available! Please visit the project page to download it."
+        dlg.WindowTitle = "Office Comparison Tool"
+        Dim downloadBtn = New TaskDialogButton("Go to Download Page")
+        dlg.Buttons.Add(downloadBtn)
+        dlg.Buttons.Add(New TaskDialogButton("Not Now"))
+        If dlg.ShowDialog() Is downloadBtn Then
+            Process.Start(url)
+        End If
+    End Sub
+
+    Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+        checker.CheckForUpdates("thirtythreeforty", "ComparisonTool")
     End Sub
 End Class
